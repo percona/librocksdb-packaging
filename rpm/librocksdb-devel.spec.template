@@ -5,7 +5,7 @@ Summary:        This code is a RocksDB static library and headers
 Group:          Development/Libraries
 License:        BSD
 URL:            https://github.com/facebook/rocksdb
-Source0:        librocksdb-dev.tar.gz
+Source0:        %{name}.tar.gz
 
 BuildRequires:  make, gcc-c++
 
