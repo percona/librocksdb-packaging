@@ -1,0 +1,44 @@
+Name:           librocksdb-devel
+Version:        @@VERSION@@
+Release:        1%{?dist}
+Summary:        This code is a RocksDB static library and headers
+
+License:        BSD
+URL:            https://github.com/facebook/rocksdb
+Source0:        librocksdb-dev.tar.gz
+
+BuildRequires:  make, gcc-c++
+
+%description
+RocksDB is developed and maintained by Facebook Database Engineering Team. It is built on earlier work on LevelDB by Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
+
+This code is a library that forms the core building block for a fast key value server, especially suited for storing data on flash drives. It has a Log-Structured-Merge-Database (LSM) design with flexible tradeoffs between Write-Amplification-Factor (WAF), Read-Amplification-Factor (RAF) and Space-Amplification-Factor (SAF). It has multi-threaded compactions, making it specially suitable for storing multiple terabytes of data in a single database.
+
+%prep
+%setup -q -n %{name}
+
+
+%build
+
+make %{?_smp_mflags} static_lib
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+make install-static INSTALL_PATH=$RPM_BUILD_ROOT/%{_prefix}
+
+%ifarch x86_64
+	mv $RPM_BUILD_ROOT/%{_prefix}/lib $RPM_BUILD_ROOT/%{_prefix}/lib64
+%endif
+
+
+%files
+%defattr(-, root, root, -)
+%{_includedir}/*
+%{_libdir}/*
+
+%doc AUTHORS LICENSE PATENTS
+
+%changelog
+* Sun Jul 19 2015 Alexey Bychko <alexey.bychko@percona.com> 3.0
+- Initial package for Percona internal repository
