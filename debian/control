@@ -1,0 +1,14 @@
+Source: librocksdb-dev
+Section: libdevel
+Priority: extra
+Maintainer: Percona Development Team <mysql-dev@percona.com>
+Uploaders: Tomislav Plavcic <tomislav.plavcic@percona.com>
+Build-Depends: debhelper, make, gcc, libbz2-dev, libsnappy-dev, zlib1g-dev, libzlcore-dev
+Standards-Version: 3.9.2
+Vcs-Git: git://github.com/facebook/rocksdb.git
+
+Package: librocksdb-dev
+Architecture: any
+Depends: ${misc:Depends}
+Description: This package contains a RocksDB static library and headers
+

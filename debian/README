@@ -1,0 +1,6 @@
+The Debian Package librocksdb-dev
+---------------------------------
+
+This code is a RocksDB static library and headers.
+
+ -- Tomislav Plavcic <tomislav.plavcic@percona.com>  Wed, 22 Jul 2015 02:01:41 -0700

@@ -1,0 +1,5 @@
+librocksdb-dev (0.1-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Tomislav Plavcic <tomislav.plavcic@percona.com>  Wed, 22 Jul 2015 02:01:41 -0700
