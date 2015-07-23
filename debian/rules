@@ -20,4 +20,7 @@ override_dh_build:
 override_dh_auto_install:
 	$(MAKE) INSTALL_PATH=$$(pwd)/debian/librocksdb-dev/usr install-static
 
+override_dh_auto_clean:
+	$(MAKE) -j1 clean
+
 override_dh_auto_test:
