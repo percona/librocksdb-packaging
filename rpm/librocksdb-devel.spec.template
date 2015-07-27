@@ -7,7 +7,8 @@ License:        BSD
 URL:            https://github.com/facebook/rocksdb
 Source0:        %{name}.tar.gz
 
-BuildRequires:  make, gcc-c++
+BuildRequires:  make, gcc-c++, snappy-devel, zlib-devel, bzip2-devel 
+Requires:       snappy-devel, zlib-devel, bzip2-devel
 
 %description
 RocksDB is developed and maintained by Facebook Database Engineering Team. It is built on earlier work on LevelDB by Sanjay Ghemawat (sanjay@google.com) and Jeff Dean (jeff@google.com)
