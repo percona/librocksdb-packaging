@@ -15,7 +15,8 @@ NCPU = $(shell grep -c processor /proc/cpuinfo)
 	dh $@ 
 
 override_dh_build:
-	$(MAKE) -j$(NCPU) static_lib
+#	$(MAKE) -j$(NCPU) static_lib
+	$(MAKE) -j4 static_lib
 
 override_dh_auto_install:
 	$(MAKE) INSTALL_PATH=$$(pwd)/debian/librocksdb-dev/usr install-static

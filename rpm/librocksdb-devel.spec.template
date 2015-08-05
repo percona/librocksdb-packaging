@@ -21,7 +21,8 @@ This code is a library that forms the core building block for a fast key value s
 
 %build
 
-make %{?_smp_mflags} static_lib
+# make %{?_smp_mflags} static_lib
+make -j4 static_lib
 
 %install
 rm -rf $RPM_BUILD_ROOT
