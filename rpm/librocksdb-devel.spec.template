@@ -6,6 +6,7 @@ Group:          Development/Libraries
 License:        BSD
 URL:            https://github.com/facebook/rocksdb
 Source0:        %{name}.tar.gz
+BuildRoot:      %{_topdir}/BUILDROOT/%{name}-%{version}-%{release}.%{_arch}
 
 BuildRequires:  make, gcc-c++, snappy-devel, zlib-devel, bzip2-devel 
 Requires:       snappy-devel, zlib-devel, bzip2-devel
