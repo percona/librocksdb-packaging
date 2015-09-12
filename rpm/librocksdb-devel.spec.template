@@ -1,6 +1,6 @@
 Name:           librocksdb-devel
 Version:        @@VERSION@@
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        This code is a RocksDB static library and headers
 Group:          Development/Libraries
 License:        BSD
@@ -23,12 +23,12 @@ This code is a library that forms the core building block for a fast key value s
 %build
 
 # make %{?_smp_mflags} static_lib
-make -j4 static_lib
+PORTABLE=1 make -j4 static_lib
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install-static INSTALL_PATH=$RPM_BUILD_ROOT/%{_prefix}
+PORTABLE=1 make install-static INSTALL_PATH=$RPM_BUILD_ROOT/%{_prefix}
 
 %ifarch x86_64
 	mv $RPM_BUILD_ROOT/%{_prefix}/lib $RPM_BUILD_ROOT/%{_prefix}/lib64
@@ -43,5 +43,8 @@ make install-static INSTALL_PATH=$RPM_BUILD_ROOT/%{_prefix}
 %doc AUTHORS LICENSE PATENTS
 
 %changelog
+* Sun Sep 13 2015 Alexey Bychko <alexey.bychko@percona.com> 3.13
+- Added portable build
+
 * Sun Jul 19 2015 Alexey Bychko <alexey.bychko@percona.com> 3.0
 - Initial package for Percona internal repository

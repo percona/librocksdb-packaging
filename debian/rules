@@ -15,13 +15,12 @@ NCPU = $(shell grep -c processor /proc/cpuinfo)
 	dh $@ 
 
 override_dh_build:
-#	$(MAKE) -j$(NCPU) static_lib
-	$(MAKE) -j4 static_lib
+	PORTABLE=1 $(MAKE) -j4 static_lib
 
 override_dh_auto_install:
-	$(MAKE) INSTALL_PATH=$$(pwd)/debian/librocksdb-dev/usr install-static
+	PORTABLE=1 $(MAKE) INSTALL_PATH=$$(pwd)/debian/librocksdb-dev/usr install-static
 
 override_dh_auto_clean:
-	$(MAKE) -j1 clean
+	PORTABLE=1 $(MAKE) -j1 clean
 
 override_dh_auto_test:
