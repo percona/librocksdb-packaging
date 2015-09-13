@@ -1,6 +1,6 @@
 Name:           librocksdb-devel
 Version:        @@VERSION@@
-Release:        2%{?dist}
+Release:        @@RELEASE@@%{?dist}
 Summary:        This code is a RocksDB static library and headers
 Group:          Development/Libraries
 License:        BSD
